@@ -2,10 +2,9 @@ import React from 'react'
 import Sidemenu from '../../../components/sidemenu'
 import { Table, Tag } from 'antd';
 import DropDown from './components/DropDown';
-import { Row, Col } from 'antd';
 import Utils from '../../../helpers/utils'
 
-const dashboard = () => {
+const Wallet = () => {
 
     const pagination = {
         current: '',
@@ -24,7 +23,7 @@ const dashboard = () => {
           }
         },
         {
-          title: 'Name',
+          title: 'Sender Name',
           dataIndex: 'sender_name',
           key: 'sender_name',
         },
@@ -46,44 +45,32 @@ const dashboard = () => {
                )
           },
         },
-      ];
-
-      const deliverySolumns = [
         {
-          title: 'S/N',
-          dataIndex: 'key',
-          key: 'key',
-          render:(item, record, index)=>{
-            return <p>{Utils.getSerialNumber(pagination.current, index, pagination.pageSize)}</p>
-          }
+          title: 'Payment Channel',
+          dataIndex: 'payment',
+          key: 'payment',
         },
         {
-          title: 'Name',
-          dataIndex: 'sender_name',
-          key: 'sender_name',
+          title: 'Description',
+          dataIndex: 'item_description',
+          key: 'item_description',
         },
         {
-          title: 'Amount',
-          dataIndex: 'amount',
-          key: 'amount',
+          title: 'Date',
+          dataIndex: 'date',
+          key: 'date',
         },
         {
-          title: 'Status',
-          key: 'status',
-          dataIndex: 'status',
-          render: status => {
-              let color = status === "pending" ? '#FFB113' : status === "Ongoing" ? '#7AAC52' :  '#E3000F';
-               return(
-                  <Tag color={color} className="bikeTags">
-                  {status}
-                </Tag>
-               )
+          title: 'Action',
+          key: 'row',
+          render: (row) => {
+            return( <DropDown data={row} type="ongoingOrders"/>)
           },
         },
       ];
-
 
   return (
+      
     <div className='main-app'>
         {/* <Sidemenu /> */}
         
@@ -94,24 +81,14 @@ const dashboard = () => {
             margin: 0,
             minHeight: 280,
           }}>
-            Here is the dashboard screen
+            Wallet
 
-            <Row >
-                <Col xs={2} sm={4} md={12} lg={12} xl={12} className='mr-3'>
-                    <Table dataSource={dataSource} columns={columns} className="walletTable" 
-                />
-                </Col>
-                <Col xs={20} sm={16} md={12} lg={12} xl={12}>
-                    <Table dataSource={dataSource} columns={deliverySolumns} className="walletTable" 
-                />
-                </Col>
-            </Row>,
+            <Table dataSource={dataSource} columns={columns} className="walletTable" 
+      />
 
-            
         </div>
-        
     </div>
   )
 }
 
-export default dashboard
+export default Wallet
