@@ -1,4 +1,5 @@
 import React from 'react'
+import Sidemenu from '../../../components/sidemenu'
 
 const History = () => {
   return (
