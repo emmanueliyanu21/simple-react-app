@@ -10,3 +10,7 @@
 body {
   font-family: 'Mukta', sans-serif;
 }
+
+.app-content {
+  margin-left: 250px;
+}

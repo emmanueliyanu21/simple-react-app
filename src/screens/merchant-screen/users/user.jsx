@@ -68,14 +68,12 @@ const user = () => {
 
   return (
     <div className='main-app'>
-        {/* <Sidemenu /> */}
+        <Sidemenu />
         
         {/*  */}
-        <div className='site-layout-background' 
+        <div className='app-content' 
         style={{
             padding: 24,
-            margin: 0,
-            minHeight: 280,
           }}>
             Here is the user screen
 

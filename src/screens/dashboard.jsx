@@ -6,8 +6,8 @@ const { Header, Sider, Content } = Layout;
 
 const dashboard = () => {
   return (
-    <Layout>
-    <Sidemenu />
+    <Layout >
+    <Sidemenu style={{ minHeight: '100vh' }}/>
     {/* <Layout className="site-layout">
           <Content
             className="site-layout-background"

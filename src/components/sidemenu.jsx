@@ -24,7 +24,15 @@ const Sidemenu = () => {
 
 
   return (
-    <div style={{ width: 200 }}>
+    <div width={250}
+    style={{
+      
+      borderRight: "2px solid #F6F6F6",
+      overflow: "auto",
+      overflowX: "hidden",
+      height: "100vh",
+      position: "fixed",
+      left: 0,}}>
         {/* <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
           {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
         </Button> */}
@@ -39,11 +47,11 @@ const Sidemenu = () => {
         >
         
           <SubMenu key="sub1" icon={<MailOutlined />} title="Rider Web">
-                <Menu.Item key="1">Dashboard</Menu.Item>
-                <Menu.Item key="2">Orders</Menu.Item>
-                <Menu.Item key="3">Routes</Menu.Item>
-                <Menu.Item key="4">History</Menu.Item>
-                <Menu.Item key="5">Profile</Menu.Item>
+                <Menu.Item key="1"><a href='/rider-dashboard'>Dashboard</a></Menu.Item>
+                <Menu.Item key="2"><a href='/rider-orders'>Orders</a></Menu.Item>
+                <Menu.Item key="3"><a href='/rider-routes'>Routes</a></Menu.Item>
+                <Menu.Item key="4"><a href='/rider-history'>History</a></Menu.Item>
+                <Menu.Item key="5"><a href='/rider-profile'>Profile</a></Menu.Item>
             </SubMenu>
           <SubMenu key="sub4" icon={<MailOutlined />} title="Merchant Dashbaord">
                 <Menu.Item key="6"><a href='/merchant-dashboard'>Dashboard</a></Menu.Item>
@@ -59,21 +67,17 @@ const Sidemenu = () => {
                         <Menu.Item key="15">Subscription</Menu.Item>
                         <Menu.Item key="16">My Profile</Menu.Item>
                     </SubMenu>
-                <Menu.Item key="17">Bikes</Menu.Item>
-                <Menu.Item key="18">Orders</Menu.Item>
+                <Menu.Item key="17"><a href='/merchant-fleet'>Bikes</a></Menu.Item>
+                <Menu.Item key="18"><a href='/merchant-order'>Orders</a></Menu.Item>
               </SubMenu>
           <SubMenu key="sub5" icon={<MailOutlined />} title="Primhex Admin">
-                <Menu.Item key="19">Dashboard</Menu.Item>
-                <SubMenu key="sub6" title="Merchant">
-                        <Menu.Item key="21">Overview</Menu.Item>
-                        <Menu.Item key="22">Users</Menu.Item>
-                        <Menu.Item key="23">Transactions</Menu.Item>
-                        <Menu.Item key="24">Rders</Menu.Item>
-                        <Menu.Item key="25">Bikes</Menu.Item>
-                    </SubMenu>
-                <Menu.Item key="26">Transactions</Menu.Item>
-                <Menu.Item key="27">Subscription</Menu.Item>
-                <Menu.Item key="28">Tracking</Menu.Item>
+                <Menu.Item key="19">
+                   <a href='/primhex-dashboard'>Dashboard</a></Menu.Item>
+                <Menu.Item key="20">
+                   <a href='/primhex-merchant'>Merchant</a></Menu.Item>
+                <Menu.Item key="26"><a href='/primhex-transaction'>Transactions</a></Menu.Item>
+                <Menu.Item key="27"><a href='/primhex-subscription'>Subscription</a></Menu.Item>
+                <Menu.Item key="28"><a href='/primhex-tracking'>Tracking</a></Menu.Item>
               </SubMenu>
           <SubMenu key="sub2" icon={<AppstoreOutlined />} title="User Web">
             <Menu.Item key="29">Dashboard</Menu.Item>

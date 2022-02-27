@@ -84,15 +84,13 @@ const dashboard = () => {
 
 
   return (
-    <div className='main-app'>
-        {/* <Sidemenu /> */}
+    <div className='main-app' >
+        <Sidemenu />
         
         {/*  */}
         <div className='app-content' 
         style={{
             padding: 24,
-            margin: 0,
-            minHeight: 280,
           }}>
             Here is the dashboard screen
 

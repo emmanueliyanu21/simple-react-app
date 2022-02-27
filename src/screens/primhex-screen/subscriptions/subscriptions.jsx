@@ -4,7 +4,7 @@ import DropDown from './component/DropDown';
 import Utils from '../../../helpers/utils'
 import Sidemenu from '../../../components/sidemenu'
 
-const fleet = () => {
+const Subscriptions = () => {
 
     const pagination = {
         current: '',
@@ -23,20 +23,34 @@ const fleet = () => {
           }
         },
         {
-          title: 'Plate No',
-          dataIndex: 'plate_no',
-          key: 'plate_no',
+          title: 'Sender Name',
+          dataIndex: 'sender_name',
+          key: 'sender_name',
         },
         {
-          title: 'Rider Name',
-          dataIndex: 'rider_name',
-          key: 'rider_name',
+          title: 'Status',
+          key: 'status',
+          dataIndex: 'status',
+          render: status => {
+              let color = status === "pending" ? '#FFB113' : status === "Ongoing" ? '#7AAC52' :  '#E3000F';
+               return(
+                  <Tag color={color} className="bikeTags">
+                  {status}
+                </Tag>
+               )
+          },
         },
         {
-          title: 'Bike Location',
-          dataIndex: 'bike_location',
-          key: 'bike_location',
+            title: 'Receiver Name',
+            dataIndex: 'reciever_name',
+            key: 'reciever_name',
         },
+        {
+          title: 'Description',
+          dataIndex: 'item_description',
+          key: 'item_description',
+        },
+        
         {
           title: 'Action',
           key: 'row',
@@ -45,6 +59,8 @@ const fleet = () => {
           },
         },
       ];
+
+
 
   return (
     <div className='main-app'>
@@ -55,7 +71,7 @@ const fleet = () => {
     style={{
         padding: 24,
       }}>
-        Here is the Fleet screen
+        Here is the Subscription screen
 
         <Table dataSource={dataSource} columns={columns} className="walletTable" 
   />
@@ -64,4 +80,4 @@ const fleet = () => {
   )
 }
 
-export default fleet
+export default Subscriptions

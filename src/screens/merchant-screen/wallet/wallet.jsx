@@ -72,14 +72,12 @@ const Wallet = () => {
   return (
       
     <div className='main-app'>
-        {/* <Sidemenu /> */}
+        <Sidemenu />
         
         {/*  */}
         <div className='app-content' 
         style={{
             padding: 24,
-            margin: 0,
-            minHeight: 280,
           }}>
             Wallet
 
