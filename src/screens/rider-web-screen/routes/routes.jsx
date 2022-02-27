@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidemenu from '../../../components/sidemenu'
 
-const Profile = () => {
+const Routes = () => {
   return (
     <div className='main-app'>
     <Sidemenu />
@@ -11,7 +11,7 @@ const Profile = () => {
     style={{
         padding: 24,
       }}>
-        Here is the Profile Screen
+        Here is the Routes Screen
 
         {/* <Table dataSource={dataSource} columns={columns} className="walletTable" 
   /> */}
@@ -20,4 +20,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Routes

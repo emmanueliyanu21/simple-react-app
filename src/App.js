@@ -21,6 +21,7 @@ import RiderDashboard from '../src/screens/rider-web-screen/dashboard/dashboard'
 import RiderHistory from '../src/screens/rider-web-screen/history/history'
 import RiderOrders from '../src/screens/rider-web-screen/orders/orders'
 import RiderProfile from '../src/screens/rider-web-screen/profile/profile'
+import RiderRoutes from '../src/screens/rider-web-screen/routes/routes'
 
 // User
 
@@ -50,6 +51,7 @@ function App() {
           <Route path="/rider-history"  element={<RiderHistory />} />
           <Route path="/rider-orders"  element={<RiderOrders />} />
           <Route path="/rider-profile"  element={<RiderProfile />} />
+          <Route path="/rider-routes"  element={<RiderRoutes />} />
 
           {/* User Routes */}
        
