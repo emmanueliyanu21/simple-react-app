@@ -80,11 +80,11 @@ const Sidemenu = () => {
                 <Menu.Item key="28"><a href='/primhex-tracking'>Tracking</a></Menu.Item>
               </SubMenu>
           <SubMenu key="sub2" icon={<AppstoreOutlined />} title="User Web">
-            <Menu.Item key="29">Dashboard</Menu.Item>
-            <Menu.Item key="30">Orders</Menu.Item>
-            <Menu.Item key="31">Wallet</Menu.Item>
-            <Menu.Item key="32">Profile</Menu.Item>
-            <Menu.Item key="33">Notifications</Menu.Item>
+            <Menu.Item key="29"><a href='/user-dashboard'>Dashboard</a></Menu.Item>
+            <Menu.Item key="30"><a href='/user-orders'>Orders</a></Menu.Item>
+            <Menu.Item key="31"><a href='/user-wallet'>Wallet</a></Menu.Item>
+            <Menu.Item key="32"><a href='/user-profile'>Profile</a></Menu.Item>
+            <Menu.Item key="33"><a href='/user-notification'>Notifications</a></Menu.Item>
           </SubMenu>
         </Menu>
       </div>

@@ -1,10 +1,10 @@
 import React from 'react'
-import Sidemenu from '../../../components/sidemenu'
 import { Table, Tag } from 'antd';
 import DropDown from './component/DropDown';
 import Utils from '../../../helpers/utils'
+import Sidemenu from '../../../components/sidemenu'
 
-const Merchant = () => {
+const Dashboard = () => {
 
     const pagination = {
         current: '',
@@ -23,34 +23,20 @@ const Merchant = () => {
           }
         },
         {
-          title: 'Sender Name',
-          dataIndex: 'sender_name',
-          key: 'sender_name',
+          title: 'Plate No',
+          dataIndex: 'plate_no',
+          key: 'plate_no',
         },
         {
-          title: 'Status',
-          key: 'status',
-          dataIndex: 'status',
-          render: status => {
-              let color = status === "pending" ? '#FFB113' : status === "Ongoing" ? '#7AAC52' :  '#E3000F';
-               return(
-                  <Tag color={color} className="bikeTags">
-                  {status}
-                </Tag>
-               )
-          },
+          title: 'Rider Name',
+          dataIndex: 'rider_name',
+          key: 'rider_name',
         },
         {
-            title: 'Receiver Name',
-            dataIndex: 'reciever_name',
-            key: 'reciever_name',
+          title: 'Bike Location',
+          dataIndex: 'bike_location',
+          key: 'bike_location',
         },
-        {
-          title: 'Description',
-          dataIndex: 'item_description',
-          key: 'item_description',
-        },
-        
         {
           title: 'Action',
           key: 'row',
@@ -71,7 +57,7 @@ const Merchant = () => {
     style={{
         padding: 24,
       }}>
-        Here is the Dashboard screen
+        Here is the User Dashboard
 
         <Table dataSource={dataSource} columns={columns} className="walletTable" 
   />
@@ -80,4 +66,4 @@ const Merchant = () => {
   )
 }
 
-export default Merchant
+export default Dashboard

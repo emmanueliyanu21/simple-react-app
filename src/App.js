@@ -15,6 +15,7 @@ import PrimhexDashboard from '../src/screens/primhex-screen/dashboard/primhex-da
 import PrimhexTransaction from '../src/screens/primhex-screen/transaction/transaction'
 import PrimhexTracking from '../src/screens/primhex-screen/tracking/tracking'
 import PrimhexSubscription from '../src/screens/primhex-screen/subscriptions/subscriptions'
+import PrimhexMerchant from '../src/screens/primhex-screen/merchant/merchant'
 
 // Rider
 import RiderDashboard from '../src/screens/rider-web-screen/dashboard/dashboard'
@@ -24,6 +25,11 @@ import RiderProfile from '../src/screens/rider-web-screen/profile/profile'
 import RiderRoutes from '../src/screens/rider-web-screen/routes/routes'
 
 // User
+import UserDashboard from '../src/screens/user-web-screen/dashboard/dashboard'
+import Userwallet from '../src/screens/user-web-screen/wallet/wallet'
+import UserOrders from '../src/screens/user-web-screen/orders/orders'
+import UserProfile from '../src/screens/user-web-screen/profile/profile'
+import UserNotification from '../src/screens/user-web-screen/notifications/notifications'
 
 function App() {
   return (
@@ -45,6 +51,7 @@ function App() {
           <Route path="/primhex-transaction"  element={<PrimhexTransaction />} />
           <Route path="/primhex-tracking"  element={<PrimhexTracking />} />
           <Route path="/primhex-subscription"  element={<PrimhexSubscription />} />
+          <Route path="/primhex-merchant"  element={<PrimhexMerchant />} />
 
           {/* Rider Routes */}
           <Route path="/rider-dashboard"  element={<RiderDashboard />} />
@@ -54,6 +61,12 @@ function App() {
           <Route path="/rider-routes"  element={<RiderRoutes />} />
 
           {/* User Routes */}
+          <Route path="/user-dashboard"  element={<UserDashboard />} />
+          <Route path="/user-wallet"  element={<Userwallet />} />
+          <Route path="/user-orders"  element={<UserOrders />} />
+          <Route path="/user-profile"  element={<UserProfile />} />
+          <Route path="/user-notification"  element={<UserNotification />} />
+
        
         </Routes>
       </Router>
