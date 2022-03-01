@@ -31,8 +31,12 @@ import UserOrders from '../src/screens/user-web-screen/orders/orders'
 import UserProfile from '../src/screens/user-web-screen/profile/profile'
 import UserNotification from '../src/screens/user-web-screen/notifications/notifications'
 
+import { Provider } from 'react-redux'
+import store from './store'
+
 function App() {
   return (
+    <Provider store={store}>
     <div className="">
       <Router>
       <Routes>
@@ -71,6 +75,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+    </Provider>
   );
 }
 

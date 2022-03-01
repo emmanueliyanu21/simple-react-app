@@ -1,10 +1,35 @@
-import React from 'react'
-import { Table, Tag } from 'antd';
+import React, {useState} from 'react'
+import { Table } from 'antd';
 import DropDown from './component/DropDown';
 import Utils from '../../../helpers/utils'
 import Sidemenu from '../../../components/sidemenu'
+import moment from 'moment';
+import { useDispatch } from "react-redux";
+import { orderActions } from '../../../actions/orders.action'
 
-const orders = () => {
+const Orders = () => {
+
+    const [oders ] = useState(['ll'])
+    const dispatch = useDispatch()
+
+  const onDateChange = (val, date)=>{
+    let pageRequest = {
+      start_date: date[0],
+      end_date: date[1]
+    }
+    dispatch(orderActions.filterPendingOrders(pageRequest))
+  }
+
+  const disabledDate = current => {
+    return  current > moment().endOf('day');
+  };
+  const getLast30Days = () =>{
+    let pageRequest = {
+      end_date: moment().format('YYYY-MM-DD'),
+      start_date: moment().subtract(30, 'days').format('YYYY-MM-DD')
+    }
+    dispatch(orderActions.filterPendingOrders(pageRequest))
+  }
 
     const pagination = {
         current: '',
@@ -65,4 +90,4 @@ const orders = () => {
   )
 }
 
-export default orders
+export default Orders

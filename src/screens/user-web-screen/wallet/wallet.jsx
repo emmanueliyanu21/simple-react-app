@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Tag } from 'antd';
+import { Table } from 'antd';
 import DropDown from './component/DropDown';
 import Utils from '../../../helpers/utils'
 import Sidemenu from '../../../components/sidemenu'
