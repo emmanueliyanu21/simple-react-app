@@ -15,13 +15,13 @@ const getPendingOrders = (pageRequest) => async (dispatch) =>{
 
     try {
         const response = await axios.get(url, header);
-        
+        console.log(response);
         const data = response.data;
         console.log(data.meta)
         if(data && data.meta){
             let payload = dataConstructor(data)
             dispatch(get_pendingOrders(payload))
-            // console.log(payload)
+            console.log(payload)
         }   
         dispatch(loading(false))
 
@@ -31,7 +31,6 @@ const getPendingOrders = (pageRequest) => async (dispatch) =>{
         Utils.warningNotification('An Error occurred');
         return error && error.response
     }
-
 }
 
 const filterPendingOrders = (pageRequest) => async(dispatch) =>{

@@ -31,6 +31,8 @@ import UserOrders from '../src/screens/user-web-screen/orders/orders'
 import UserProfile from '../src/screens/user-web-screen/profile/profile'
 import UserNotification from '../src/screens/user-web-screen/notifications/notifications'
 
+import Login from '../src/screens/authentication/Login'
+
 import { Provider } from 'react-redux'
 import store from './store'
 
@@ -71,6 +73,8 @@ function App() {
           <Route path="/user-profile"  element={<UserProfile />} />
           <Route path="/user-notification"  element={<UserNotification />} />
 
+          {/* Authentication */}
+          <Route path="/login"  element={<Login />} />
        
         </Routes>
       </Router>

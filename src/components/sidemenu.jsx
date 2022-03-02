@@ -1,14 +1,6 @@
 import React, {useState} from 'react'
-import { Menu, Button } from 'antd';
-import {
-  AppstoreOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
-  ContainerOutlined,
-  MailOutlined,
-} from '@ant-design/icons';
+import { Menu } from 'antd';
+import { AppstoreOutlined, MailOutlined, } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -16,11 +8,11 @@ const Sidemenu = () => {
 
     const [collapsed ] = useState(false);
     
-      const toggleCollapsed = () => {
-        this.setState({
-          collapsed: !this.state.collapsed,
-        });
-      };
+    //   const toggleCollapsed = () => {
+    //     this.setState({
+    //       collapsed: !this.state.collapsed,
+    //     });
+    //   };
 
 
   return (
@@ -33,15 +25,11 @@ const Sidemenu = () => {
       height: "100vh",
       position: "fixed",
       left: 0,}}>
-        {/* <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
-        </Button> */}
         <Menu
         mode="inline"
         style={{ height: '100%', borderRight: 0 }}
         //   defaultSelectedKeys={['1']}
         //   defaultOpenKeys={['sub1']}
-          mode="inline"
           theme="dark"
           inlineCollapsed={collapsed}
         >

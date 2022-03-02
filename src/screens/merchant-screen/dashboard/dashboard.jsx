@@ -1,7 +1,6 @@
 import React from 'react'
 import Sidemenu from '../../../components/sidemenu'
 import { Table, Tag } from 'antd';
-import DropDown from './components/DropDown';
 import { Row, Col } from 'antd';
 import Utils from '../../../helpers/utils'
 

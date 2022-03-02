@@ -1,8 +1,8 @@
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 import React from 'react'
 import Sidemenu from '../../src/components/sidemenu'
 
-const { Header, Sider, Content } = Layout;
+// const { Header, Sider, Content } = Layout;
 
 const dashboard = () => {
   return (

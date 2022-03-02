@@ -1,11 +1,16 @@
 import React, {useState} from 'react'
-import { Table } from 'antd';
-import DropDown from './component/DropDown';
-import Utils from '../../../helpers/utils'
+import { Tabs, DatePicker } from "antd";
 import Sidemenu from '../../../components/sidemenu'
 import moment from 'moment';
 import { useDispatch } from "react-redux";
 import { orderActions } from '../../../actions/orders.action'
+import OngoingOrderTable from './component/OngoingOrderTable'
+import CompletedOrderTable from './component/CompletedOrderTable'
+// import { Icon } from "@iconify/react";
+import Emptydata from "./component/EmptyData";
+
+const { TabPane } = Tabs;
+const { RangePicker } = DatePicker;
 
 const Orders = () => {
 
@@ -23,55 +28,18 @@ const Orders = () => {
   const disabledDate = current => {
     return  current > moment().endOf('day');
   };
-  const getLast30Days = () =>{
-    let pageRequest = {
-      end_date: moment().format('YYYY-MM-DD'),
-      start_date: moment().subtract(30, 'days').format('YYYY-MM-DD')
-    }
-    dispatch(orderActions.filterPendingOrders(pageRequest))
+  // const getLast30Days = () =>{
+  //   let pageRequest = {
+  //     end_date: moment().format('YYYY-MM-DD'),
+  //     start_date: moment().subtract(30, 'days').format('YYYY-MM-DD')
+  //   }
+  //   dispatch(orderActions.filterPendingOrders(pageRequest))
+  // }
+
+  function callback(key) {
+    console.log(key);
   }
-
-    const pagination = {
-        current: '',
-        pageSize: ''
-    }
-
-    const dataSource = ''
-
-    const columns = [
-        {
-          title: 'S/N',
-          dataIndex: 'key',
-          key: 'key',
-          render:(item, record, index)=>{
-            return <p>{Utils.getSerialNumber(pagination.current, index, pagination.pageSize)}</p>
-          }
-        },
-        {
-          title: 'Plate No',
-          dataIndex: 'plate_no',
-          key: 'plate_no',
-        },
-        {
-          title: 'Rider Name',
-          dataIndex: 'rider_name',
-          key: 'rider_name',
-        },
-        {
-          title: 'Bike Location',
-          dataIndex: 'bike_location',
-          key: 'bike_location',
-        },
-        {
-          title: 'Action',
-          key: 'row',
-          render: (row) => {
-            return( <DropDown data={row} type="ongoingOrders"/>)
-          },
-        },
-      ];
-
-
+    
   return (
     <div className='main-app'>
     <Sidemenu />
@@ -81,11 +49,38 @@ const Orders = () => {
     style={{
         padding: 24,
       }}>
-        Here is the User Notifications
+        Here is the Order Details <RangePicker onChange={onDateChange} disabledDate={disabledDate}/>
+        <Tabs defaultActiveKey="1" onChange={callback}>
+            <TabPane tab={<p>Pending</p>} key="1">
+              {<OngoingOrderTable /> }
+            </TabPane>
+            <TabPane tab={<p>Completed</p>} key="2">
+              {oders.length > 0 ? <CompletedOrderTable/>: <Emptydata/> }
+            </TabPane>
+          </Tabs>
+          <div className="absolute abs">
+          
+          {/* <Button className="btndownload d-md-none" onClick={getLast30Days}>
+              <Icon
+                className="icons"
+                icon="bi:filter-right"
+              />
+             <small className="filterSpan">Filtered By Orders From Last 30 Days</small>
+            </Button>
+            <Button className="btndownload d-md-none">
+              <Icon
+                className="icons"
+                icon="ant-design:cloud-download-outlined"
+                color="#006FC1"
+              />
+              <small className="filterSpan">Download</small>
+            </Button> */}
+            
 
-        <Table dataSource={dataSource} columns={columns} className="walletTable" 
-  />
-    </div>
+          </div>
+         
+      </div>
+
     </div>
   )
 }
