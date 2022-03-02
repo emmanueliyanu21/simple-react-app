@@ -3,3 +3,10 @@
     color: #fff;
     height: 100vh;
 }
+
+.loginPage {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 60px 6rem;
+    width: 50%;
+}

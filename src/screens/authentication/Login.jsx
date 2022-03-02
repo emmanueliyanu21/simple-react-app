@@ -1,6 +1,6 @@
 import React from 'react'
 import './Style.css';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 
 const Login = () => {
 
@@ -17,13 +17,13 @@ const Login = () => {
         
         Login
 
-        <Form
+        <Form className='loginPage'
       name="basic"
       labelCol={{
-        span: 8,
+        span: 24,
       }}
       wrapperCol={{
-        span: 16,
+        span: 24,
       }}
       initialValues={{
         remember: true,
@@ -62,11 +62,11 @@ const Login = () => {
         name="remember"
         valuePropName="checked"
         wrapperCol={{
-          offset: 8,
+         
           span: 16,
         }}
       >
-        <Checkbox>Remember me</Checkbox>
+        <p>You don't have an account? Create an account</p>
       </Form.Item>
 
       <Form.Item
