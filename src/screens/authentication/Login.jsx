@@ -4,7 +4,8 @@ import { Form, Input, Button } from 'antd';
 import { useDispatch } from "react-redux";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { sendLogin } from "../actions";
+import { loginAction } from "../../actions/auth.action";
+import Spin from "../../components/Loader";
 
 const Login = () => {
     const formRef = useRef();
@@ -33,7 +34,7 @@ const Login = () => {
         }
         console.log(formdata)
   
-         const response = await dispatch(sendLogin.sendLoginDetails(formdata));
+         const response = await dispatch(loginAction.sendLoginDetails(formdata));
         console.log(response);
         if(response.data.success === true) {
           setLoading(false) 
@@ -41,7 +42,7 @@ const Login = () => {
               email: '',
               password: '',
           });
-        toast.success('Action Successful',{
+        toast.success('Action Successful', {
           autoClose: 2000,
           hideProgressBar: true})
       }
@@ -114,7 +115,7 @@ const Login = () => {
         }}
       >
         <Button type="primary" htmlType="submit">
-          Submit
+          Submit {loading &&  <Spin />}
         </Button>
       </Form.Item>
     </Form>

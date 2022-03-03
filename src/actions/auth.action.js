@@ -1,5 +1,5 @@
-import { sendLoginConstants } from "../constant/sendLogin";
-import { sendLoginService } from "../service/sendLogin";
+import { sendLoginConstants } from "../constants/sendLogin";
+import { sendLoginService } from "../services/sendLogin";
 
 function sendLoginDetails(formdata) {
     return async dispatch => {
@@ -17,9 +17,9 @@ function sendLoginDetails(formdata) {
       }
     }
 
-  function request (formdata) { return { type: sendLoginConstants.SENDLogin_REQUEST, formdata } }
-  function success (loginDetails) { return { type: sendLoginConstants.SENDLogin_SUCCESS, loginDetails } }
-  function failure (error) { return { type: sendLoginConstants.SENDLogin_ERROR, error } }
+  function request (formdata) { return { type: sendLoginConstants.SENDLOGIN_REQUEST, formdata } }
+  function success (loginDetails) { return { type: sendLoginConstants.SENDLOGIN_SUCCESS, loginDetails } }
+  function failure (error) { return { type: sendLoginConstants.SENDLOGIN_ERROR, error } }
 }
 
 
