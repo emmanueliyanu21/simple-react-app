@@ -4,14 +4,22 @@
     height: 100vh;
 }
 
+.background h2 {
+    color: #fff;
+    font-size: 24px;
+    padding-top: 20px;
+}
+
 .loginPage {
     background-color: #fff;
     border-radius: 8px;
     padding: 60px 6rem;
     width: 50%;
+    margin: auto auto;
 }
 
 .wrapper-background {
    text-align: center;
    margin: auto;
+   /* height: 100vh; */
 }

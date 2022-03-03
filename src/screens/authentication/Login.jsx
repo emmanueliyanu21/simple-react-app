@@ -15,8 +15,7 @@ const Login = () => {
   return (
     <div className='wrapper-background'>
         <div className='background'>
-        Login
-
+            <h2>Login</h2>
         <Form className='loginPage'
       name="basic"
       labelCol={{
@@ -71,8 +70,8 @@ const Login = () => {
 
       <Form.Item
         wrapperCol={{
-          offset: 8,
-          span: 16,
+          
+          span: 24,
         }}
       >
         <Button type="primary" htmlType="submit">
