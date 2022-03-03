@@ -13,8 +13,8 @@ const Login = () => {
       };
 
   return (
-    <div className='background'>
-        
+    <div className='wrapper-background'>
+        <div className='background'>
         Login
 
         <Form className='loginPage'
@@ -80,7 +80,7 @@ const Login = () => {
         </Button>
       </Form.Item>
     </Form>
-        
+    </div>
         </div>
   )
 }
