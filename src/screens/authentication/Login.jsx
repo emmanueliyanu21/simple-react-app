@@ -1,17 +1,57 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import './Style.css';
 import { Form, Input, Button } from 'antd';
+import { useDispatch } from "react-redux";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { sendLogin } from "../actions";
 
 const Login = () => {
+    const formRef = useRef();
+    const dispatch = useDispatch();
+  const [loading,setLoading] = useState(false)
+  const [query, setQuery] = useState({
+    email: '',
+    password: '',
+  });
 
-    const onFinish = (values) => {
-        console.log('Success:', values);
-      };
-    
-      const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-      };
 
+  const handleInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setQuery((prevState) => ({
+        ...prevState,
+        [name]: value
+    }));
+    };
+    const onFinish = async () => {
+        setLoading(true) 
+  
+        const formdata = {
+          email: query.email,
+          password: query.password,
+        }
+        console.log(formdata)
+  
+         const response = await dispatch(sendLogin.sendLoginDetails(formdata));
+        console.log(response);
+        if(response.data.success === true) {
+          setLoading(false) 
+          formRef.current.setFieldsValue({
+              email: '',
+              password: '',
+          });
+        toast.success('Action Successful',{
+          autoClose: 2000,
+          hideProgressBar: true})
+      }
+      else {
+        toast.error(response?.data?.message,{
+          autoClose: 2000,
+          hideProgressBar: true })
+          setLoading(false) 
+        }
+    }
   return (
     <div className='wrapper-background'>
         <div className='background'>
@@ -28,7 +68,6 @@ const Login = () => {
         remember: true,
       }}
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <Form.Item
@@ -41,7 +80,7 @@ const Login = () => {
           },
         ]}
       >
-        <Input />
+        <Input value={query.email} name='email' onChange={(e)=>handleInput(e)} />
       </Form.Item>
 
       <Form.Item
@@ -54,7 +93,7 @@ const Login = () => {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password value={query.password} name='password' onChange={(e)=>handleInput(e)} />
       </Form.Item>
 
       <Form.Item
