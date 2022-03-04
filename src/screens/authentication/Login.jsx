@@ -6,11 +6,13 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { loginAction } from "../../actions/auth.action";
 import Spin from "../../components/Loader";
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
     const formRef = useRef();
     const dispatch = useDispatch();
-  const [loading,setLoading] = useState(false)
+    const auth = sessionStorage.getItem('isAuthenticated')
+  const [loading,setLoading] = useState(false);
   const [query, setQuery] = useState({
     email: '',
     password: '',
@@ -53,6 +55,11 @@ const Login = () => {
           setLoading(false) 
         }
     }
+
+    if (auth){
+        return <Navigate to='/company-admin'/>
+    }
+
   return (
     <div className='wrapper-background'>
         <div className='background'>
