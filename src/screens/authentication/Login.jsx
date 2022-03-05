@@ -18,6 +18,11 @@ const Login = () => {
     password: '',
   });
 
+  const disabled = useMemo(
+    () =>  !query.email || !query.password,
+    [ query.email, query.password]
+    );
+
 
   const handleInput = (e) => {
     const name = e.target.name;
@@ -121,7 +126,7 @@ const Login = () => {
           span: 24,
         }}
       >
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" disabled={disabled} htmlType="submit">
           Submit {loading &&  <Spin />}
         </Button>
       </Form.Item>
